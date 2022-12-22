@@ -19,27 +19,51 @@ Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi)
 BONUS 3:
 Aggiungere bottoni di start/stop  del meccanismo di autoplay.
 */
-const data = 
-[
+const carosello = document.getElementById("carosello")
+const buttonNext = document.getElementById("buttonNext")
+
+const prova = document.getElementById("prova")
+const data =
+    [{
+        image: 'img/01.webp',
+        title: 'Marvel\'s Spiderman Miles Morale',
+        text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
+    },
     {
-      image: 'img/01.webp',
-      title: 'Marvel\'s Spiderman Miles Morale',
-      text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
+        image: 'img/02.webp',
+        title: 'Ratchet & Clank: Rift Apart',
+        text: 'Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.',
     }, {
-      image: 'img/02.webp',
-      title: 'Ratchet & Clank: Rift Apart',
-      text: 'Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.',
+        image: 'img/03.webp',
+        title: 'Fortnite',
+        text: "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
     }, {
-      image: 'img/03.webp',
-      title: 'Fortnite',
-      text: "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
+        image: 'img/04.webp',
+        title: 'Stray',
+        text: 'Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city',
     }, {
-      image: 'img/04.webp',
-      title: 'Stray',
-      text: 'Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city',
-    }, {
-      image: 'img/05.webp',
-      title: "Marvel's Avengers",
-      text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
+        image: 'img/05.webp',
+        title: "Marvel's Avengers",
+        text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
-];
+    ];
+
+
+
+let currentActiveIndex = 0;
+for (i=0; i<data.length; i++) {
+    const currentImage = data[i]
+    carosello.innerHTML += `<img src="${currentImage.image}"alt="1"> `
+}
+
+
+
+/*
+const allImages = document.querySelectorAll("img")
+buttonNext.addEventListener("click", function(){
+    currentActiveIndex++;
+    allImages[currentActiveIndex].classList.remove("none")
+    console.log(allImages[currentActiveIndex])
+   
+})*/
+
