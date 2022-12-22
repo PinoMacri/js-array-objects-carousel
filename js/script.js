@@ -21,6 +21,8 @@ Aggiungere bottoni di start/stop  del meccanismo di autoplay.
 */
 const carosello = document.getElementById("carosello")
 const buttonNext = document.getElementById("buttonNext")
+const buttonBack = document.getElementById("buttonBack")
+const padreImages = document.getElementById("padreImg")
 
 const prova = document.getElementById("prova")
 const data =
@@ -51,19 +53,47 @@ const data =
 
 
 let currentActiveIndex = 0;
-for (i=0; i<data.length; i++) {
+for (i = 0; i < data.length; i++) {
     const currentImage = data[i]
-    carosello.innerHTML += `<img src="${currentImage.image}"alt="1"> `
+    padreImages.innerHTML += `<img src="${currentImage.image}"alt="1"> <h2>${currentImage.title}</h2> <p>${currentImage.text}</p>`
 }
-
-
-
-/*
 const allImages = document.querySelectorAll("img")
-buttonNext.addEventListener("click", function(){
+allImages[currentActiveIndex].classList.add("active")
+
+const allTitle = document.querySelectorAll("h2")
+allTitle[currentActiveIndex].classList.add("active")
+
+const allText = document.querySelectorAll("p")
+allText[currentActiveIndex].classList.add("active")
+
+buttonNext.addEventListener("click", function () {
+    allText[currentActiveIndex].classList.remove("active")
+    allTitle[currentActiveIndex].classList.remove("active")
+    allImages[currentActiveIndex].classList.remove("active")
     currentActiveIndex++;
-    allImages[currentActiveIndex].classList.remove("none")
-    console.log(allImages[currentActiveIndex])
-   
-})*/
+    if (currentActiveIndex === allImages.length) {
+        currentActiveIndex = 0;
+    }
+    allText[currentActiveIndex].classList.add("active")
+    allTitle[currentActiveIndex].classList.add("active")
+    allImages[currentActiveIndex].classList.add("active")
+    console.log(currentActiveIndex)
+})
+
+buttonBack.addEventListener("click", function () {
+    allText[currentActiveIndex].classList.remove("active")
+    allTitle[currentActiveIndex].classList.remove("active")
+    allImages[currentActiveIndex].classList.remove("active")
+    currentActiveIndex--;
+    if (currentActiveIndex < 0) {
+        currentActiveIndex = allImages.length - 1;
+    }
+    allText[currentActiveIndex].classList.add("active")
+    allImages[currentActiveIndex].classList.add("active")
+    allTitle[currentActiveIndex].classList.add("active")
+    console.log(currentActiveIndex)
+})
+
+
+
 
