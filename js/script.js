@@ -23,6 +23,7 @@ const carosello = document.getElementById("carosello")
 const buttonNext = document.getElementById("buttonNext")
 const buttonBack = document.getElementById("buttonBack")
 const padreImages = document.getElementById("padreImg")
+const thumb = document.getElementById("thumb")
 
 const prova = document.getElementById("prova")
 const data =
@@ -56,8 +57,15 @@ let currentActiveIndex = 0;
 for (i = 0; i < data.length; i++) {
     const currentImage = data[i]
     padreImages.innerHTML += `<img src="${currentImage.image}"alt="1"> <h2>${currentImage.title}</h2> <p>${currentImage.text}</p>`
+    thumb.innerHTML += `<img class="opacity" src="${currentImage.image}"alt="2">`
 }
-const allImages = document.querySelectorAll("img")
+const thumbImages = document.querySelectorAll(".thumbles img")
+thumbImages[currentActiveIndex].classList.add("personalizzazioneThumb")
+
+
+
+
+const allImages = document.querySelectorAll(".padreImages img")
 allImages[currentActiveIndex].classList.add("active")
 
 const allTitle = document.querySelectorAll("h2")
@@ -66,7 +74,10 @@ allTitle[currentActiveIndex].classList.add("active")
 const allText = document.querySelectorAll("p")
 allText[currentActiveIndex].classList.add("active")
 
+
+
 buttonNext.addEventListener("click", function () {
+    thumbImages[currentActiveIndex].classList.remove("personalizzazioneThumb")
     allText[currentActiveIndex].classList.remove("active")
     allTitle[currentActiveIndex].classList.remove("active")
     allImages[currentActiveIndex].classList.remove("active")
@@ -74,6 +85,7 @@ buttonNext.addEventListener("click", function () {
     if (currentActiveIndex === allImages.length) {
         currentActiveIndex = 0;
     }
+    thumbImages[currentActiveIndex].classList.add("personalizzazioneThumb")
     allText[currentActiveIndex].classList.add("active")
     allTitle[currentActiveIndex].classList.add("active")
     allImages[currentActiveIndex].classList.add("active")
@@ -81,6 +93,7 @@ buttonNext.addEventListener("click", function () {
 })
 
 buttonBack.addEventListener("click", function () {
+    thumbImages[currentActiveIndex].classList.remove("personalizzazioneThumb")
     allText[currentActiveIndex].classList.remove("active")
     allTitle[currentActiveIndex].classList.remove("active")
     allImages[currentActiveIndex].classList.remove("active")
@@ -88,11 +101,13 @@ buttonBack.addEventListener("click", function () {
     if (currentActiveIndex < 0) {
         currentActiveIndex = allImages.length - 1;
     }
+    thumbImages[currentActiveIndex].classList.add("personalizzazioneThumb")
     allText[currentActiveIndex].classList.add("active")
     allImages[currentActiveIndex].classList.add("active")
     allTitle[currentActiveIndex].classList.add("active")
     console.log(currentActiveIndex)
 })
+
 
 
 

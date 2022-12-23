@@ -1,4 +1,6 @@
-
+div {
+    border: 1px dahed black;
+}
 #carosello {
     position: relative;
 }
@@ -57,4 +59,29 @@ p {
 }
 .active {
     display: block;
+}
+#thumb {
+    width: 1000px;
+    margin-top: 20px;
+}
+#thumb img {
+    width: 300px;
+    height: 100px;
+    object-fit: cover;
+    object-position: 100% 50%;
+    border-radius: 20px;
+    display: block;
+}
+.opacity {
+    opacity:0.5
+}
+#thumb img:hover {
+    opacity: 1;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(162, 0, 255), 0 0 0.2em red; ;
+}
+.personalizzazioneThumb {
+    opacity: 1;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(162, 0, 255), 0 0 0.2em red; ;
 }
