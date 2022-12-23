@@ -113,6 +113,8 @@ buttonBack.addEventListener("click", function () {
 let slide;
 buttonStart.addEventListener("click" , function(){
     slide = setInterval (myFunction, 5000)
+    buttonStop.classList.remove("gold")
+    buttonStart.classList.add("gold")
 function myFunction () {
     thumbImages[currentActiveIndex].classList.remove("personalizzazioneThumb")
     allText[currentActiveIndex].classList.remove("active")
@@ -132,6 +134,7 @@ function myFunction () {
 
 buttonStop.addEventListener("click" , function(){
     clearInterval (slide)
-
+    buttonStart.classList.remove("gold")
+    buttonStop.classList.add("gold")
 })
 
