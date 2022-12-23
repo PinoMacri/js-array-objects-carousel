@@ -15,7 +15,8 @@ se l'utente clicca la freccia verso sinistra.
 BONUS 1:
 Aggiungere le thumbnails (sotto forma di miniatura) ed al click attivare l’immagine corrispondente.
 BONUS 2:
-Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
+Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà 
+cambiare alla successiva.
 BONUS 3:
 Aggiungere bottoni di start/stop  del meccanismo di autoplay.
 */
@@ -24,7 +25,8 @@ const buttonNext = document.getElementById("buttonNext")
 const buttonBack = document.getElementById("buttonBack")
 const padreImages = document.getElementById("padreImg")
 const thumb = document.getElementById("thumb")
-
+const buttonStop = document.getElementById("buttonStop")
+const buttonStart = document.getElementById("buttonStart")
 const prova = document.getElementById("prova")
 const data =
     [{
@@ -89,7 +91,7 @@ buttonNext.addEventListener("click", function () {
     allText[currentActiveIndex].classList.add("active")
     allTitle[currentActiveIndex].classList.add("active")
     allImages[currentActiveIndex].classList.add("active")
-    console.log(currentActiveIndex)
+   
 })
 
 buttonBack.addEventListener("click", function () {
@@ -105,10 +107,31 @@ buttonBack.addEventListener("click", function () {
     allText[currentActiveIndex].classList.add("active")
     allImages[currentActiveIndex].classList.add("active")
     allTitle[currentActiveIndex].classList.add("active")
-    console.log(currentActiveIndex)
+
+})
+
+let slide;
+buttonStart.addEventListener("click" , function(){
+    slide = setInterval (myFunction, 5000)
+function myFunction () {
+    thumbImages[currentActiveIndex].classList.remove("personalizzazioneThumb")
+    allText[currentActiveIndex].classList.remove("active")
+    allTitle[currentActiveIndex].classList.remove("active")
+    allImages[currentActiveIndex].classList.remove("active")
+    currentActiveIndex++;
+    if (currentActiveIndex === allImages.length) {
+        currentActiveIndex = 0;
+    }
+    thumbImages[currentActiveIndex].classList.add("personalizzazioneThumb")
+    allText[currentActiveIndex].classList.add("active")
+    allTitle[currentActiveIndex].classList.add("active")
+    allImages[currentActiveIndex].classList.add("active")
+}
 })
 
 
+buttonStop.addEventListener("click" , function(){
+    clearInterval (slide)
 
-
+})
 
